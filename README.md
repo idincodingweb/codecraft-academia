@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# CodeCraft Academia
 
-## Project info
+> CodeCraft Academia adalah sebuah platform web yang didedikasikan untuk pembelajaran pemrograman. Situs ini menyediakan kumpulan artikel informatif seputar dunia koding, cocok untuk para pelajar dan pengembang yang ingin memperdalam pengetahuannya.
 
-**URL**: https://lovable.dev/projects/dda9b903-77cb-453e-9a6a-f64551cc577d
+Salah satu fitur unggulan dari platform ini adalah **Asisten AI Chat** yang terintegrasi, dirancang khusus untuk membantu menjawab berbagai pertanyaan seputar koding dan memberikan solusi secara *real-time*.
 
-## How can I edit this code?
+## Tech Stack
 
-There are several ways of editing your application.
+Proyek ini dibangun menggunakan teknologi modern berikut:
 
-**Use Lovable**
+-   **[Vite](https://vitejs.dev/)**: Frontend tooling yang sangat cepat.
+-   **[React](https://react.dev/)**: Library JavaScript untuk membangun antarmuka pengguna.
+-   **[TypeScript](https://www.typescriptlang.org/)**: Superset JavaScript yang menambahkan tipe statis.
+-   **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first untuk desain yang cepat.
+-   **[shadcn/ui](https://ui.shadcn.com/)**: Kumpulan komponen UI yang dapat digunakan kembali.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/dda9b903-77cb-453e-9a6a-f64551cc577d) and start prompting.
+## Memulai (Getting Started)
 
-Changes made via Lovable will be committed automatically to this repo.
+Untuk menjalankan salinan lokal proyek ini, ikuti langkah-langkah di bawah ini.
 
-**Use your preferred IDE**
+### Prasyarat
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Pastikan Anda telah menginstal Node.js dan npm di sistem Anda.
+-   Kami merekomendasikan menggunakan **[nvm (Node Version Manager)](https://github.com/nvm-sh/nvm#installing-and-updating)** untuk mengelola versi Node.js.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Instalasi & Menjalankan Secara Lokal
 
-Follow these steps:
+1.  **Clone repositori ini:**
+    ```sh
+    git clone <URL_GIT_ANDA>
+    ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2.  **Masuk ke direktori proyek:**
+    ```sh
+    cd <NAMA_PROYEK_ANDA>
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3.  **Instal semua dependensi:**
+    ```sh
+    npm install
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4.  **Jalankan server pengembangan:**
+    Perintah ini akan memulai server lokal dengan *hot-reloading*, sehingga perubahan kode akan langsung terlihat di browser.
+    ```sh
+    npm run dev
+    ```
+    Buka [http://localhost:5173](http://localhost:5173) (atau port lain yang ditampilkan di terminal) di browser Anda untuk melihat hasilnya.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Metode Pengembangan Alternatif
 
-**Edit a file directly in GitHub**
+-   **Edit Langsung di GitHub**: Navigasikan ke file yang ingin Anda ubah dan klik ikon pensil ("Edit") untuk melakukan perubahan cepat langsung dari repositori GitHub Anda.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+-   **Gunakan GitHub Codespaces**:
+    1.  Di halaman utama repositori, klik tombol hijau **"< > Code"**.
+    2.  Pilih tab **"Codespaces"**.
+    3.  Klik **"Create codespace on main"** untuk meluncurkan lingkungan pengembangan berbasis cloud yang sudah dikonfigurasi sepenuhnya.
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Proyek Vite + React ini dapat dengan mudah di-deploy ke platform hosting statis mana pun, seperti:
+-   [Vercel](https://vercel.com)
+-   [Netlify](https://www.netlify.com)
+-   [GitHub Pages](https://pages.github.com)
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/dda9b903-77cb-453e-9a6a-f64551cc577d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Biasanya, Anda perlu mengonfigurasi pengaturan berikut di platform hosting Anda:
+-   **Build Command**: `npm run build`
+-   **Publish/Output Directory**: `dist`
