@@ -159,9 +159,9 @@ const Chat = () => {
 
               {/* Chat Area */}
               <div className="lg:col-span-3">
-                <Card className="h-[600px] flex flex-col">
+                <Card className="h-[600px] flex flex-col bg-gradient-to-b from-background to-muted/20">
                   {/* Messages */}
-                  <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                  <div className="flex-1 overflow-y-auto p-6 space-y-6">
                     {messages.map((message) => (
                       <motion.div
                         key={message.id}
@@ -189,12 +189,12 @@ const Chat = () => {
                         <div className={`flex-1 ${
                           message.sender === 'user' ? 'text-right' : ''
                         }`}>
-                          <div className={`inline-block max-w-[80%] p-4 rounded-lg ${
+                          <div className={`inline-block max-w-[80%] p-4 rounded-xl shadow-sm ${
                             message.sender === 'user'
-                              ? 'bg-primary text-primary-foreground ml-auto'
-                              : 'bg-muted'
+                              ? 'bg-gradient-primary text-white ml-auto'
+                              : 'bg-white dark:bg-muted border border-border/20'
                           }`}>
-                            <p className="whitespace-pre-wrap">{message.content}</p>
+                            <p className="whitespace-pre-wrap leading-relaxed text-sm">{message.content}</p>
                           </div>
                           <p className="text-xs text-muted-foreground mt-1">
                             {message.timestamp.toLocaleTimeString('id-ID', {
@@ -218,11 +218,15 @@ const Chat = () => {
                             <Bot className="h-4 w-4" />
                           </AvatarFallback>
                         </Avatar>
-                        <div className="bg-muted p-4 rounded-lg">
-                          <div className="flex items-center space-x-2">
-                            <Loader2 className="h-4 w-4 animate-spin" />
+                        <div className="bg-white dark:bg-muted p-4 rounded-xl shadow-sm border border-border/20">
+                          <div className="flex items-center space-x-3">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                              <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                              <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                            </div>
                             <span className="text-sm text-muted-foreground">
-                              Idin Code AI is thinking...
+                              Idin Code AI sedang berpikir...
                             </span>
                           </div>
                         </div>

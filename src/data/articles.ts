@@ -1,4 +1,6 @@
 // CodeCraft Academia - Programming Articles Database
+import { cleanMarkdownContent } from '@/utils/cleanContent';
+
 export interface Article {
   id: string;
   title: string;
@@ -19,39 +21,36 @@ export const articles: Article[] = [
     id: "js-basics-1",
     title: "Memahami Dasar-Dasar JavaScript untuk Pemula",
     excerpt: "Pelajari konsep fundamental JavaScript mulai dari variabel, tipe data, hingga fungsi dengan cara yang mudah dipahami.",
-    content: `# Memahami Dasar-Dasar JavaScript untuk Pemula
+    content: `Memahami Dasar-Dasar JavaScript untuk Pemula
 
-## Pengantar
+Pengantar
 JavaScript adalah bahasa pemrograman yang sangat populer dan mudah dipelajari. Dalam artikel ini, kita akan mempelajari konsep-konsep dasar yang perlu Anda ketahui.
 
-## Variabel dan Tipe Data
+Variabel dan Tipe Data
 JavaScript memiliki beberapa tipe data dasar:
-- **String**: Untuk teks
-- **Number**: Untuk angka
-- **Boolean**: Untuk nilai true/false
-- **Array**: Untuk menyimpan banyak nilai
-- **Object**: Untuk menyimpan data kompleks
+• String: Untuk teks
+• Number: Untuk angka  
+• Boolean: Untuk nilai true/false
+• Array: Untuk menyimpan banyak nilai
+• Object: Untuk menyimpan data kompleks
 
-\`\`\`javascript
-// Contoh deklarasi variabel
+Contoh deklarasi variabel:
+
 let nama = "John Doe";
 let umur = 25;
 let isStudent = true;
 let hobi = ["coding", "gaming", "reading"];
-\`\`\`
 
-## Fungsi
+Fungsi
 Fungsi adalah blok kode yang dapat digunakan berulang kali:
 
-\`\`\`javascript
 function sapa(nama) {
     return "Halo, " + nama + "!";
 }
 
 console.log(sapa("Budi")); // Output: Halo, Budi!
-\`\`\`
 
-## Kesimpulan
+Kesimpulan
 Memahami dasar-dasar JavaScript sangat penting untuk menjadi web developer yang handal. Terus berlatih dan jangan takut untuk bereksperimen!`,
     category: "JavaScript",
     tags: ["JavaScript", "Pemula", "Web Development"],
@@ -64,13 +63,12 @@ Memahami dasar-dasar JavaScript sangat penting untuk menjadi web developer yang 
     id: "js-dom-manipulation",
     title: "Manipulasi DOM dengan JavaScript",
     excerpt: "Belajar cara mengubah dan berinteraksi dengan elemen HTML menggunakan JavaScript DOM API.",
-    content: `# Manipulasi DOM dengan JavaScript
+    content: cleanMarkdownContent(`Manipulasi DOM dengan JavaScript
 
-## Apa itu DOM?
+Apa itu DOM?
 DOM (Document Object Model) adalah representasi struktur dokumen HTML dalam bentuk objek yang dapat dimanipulasi dengan JavaScript.
 
-## Mengakses Elemen
-\`\`\`javascript
+Mengakses Elemen
 // Mengakses elemen berdasarkan ID
 const element = document.getElementById('myElement');
 
@@ -80,10 +78,8 @@ const elements = document.getElementsByClassName('myClass');
 // Menggunakan querySelector (lebih modern)
 const element = document.querySelector('#myElement');
 const elements = document.querySelectorAll('.myClass');
-\`\`\`
 
-## Mengubah Konten
-\`\`\`javascript
+Mengubah Konten
 // Mengubah teks
 element.textContent = 'Teks baru';
 
@@ -92,16 +88,13 @@ element.innerHTML = '<strong>Teks tebal</strong>';
 
 // Mengubah atribut
 element.setAttribute('class', 'new-class');
-\`\`\`
 
-## Event Handling
-\`\`\`javascript
+Event Handling
 button.addEventListener('click', function() {
     alert('Button diklik!');
 });
-\`\`\`
 
-Manipulasi DOM adalah skill fundamental untuk membuat website interaktif.`,
+Manipulasi DOM adalah skill fundamental untuk membuat website interaktif.`),
     category: "JavaScript",
     tags: ["JavaScript", "DOM", "Web Development"],
     author: "Idin Iskandar",
