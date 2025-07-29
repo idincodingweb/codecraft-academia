@@ -40,6 +40,9 @@ const Chat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // PERUBAHAN 2: Logika untuk mendeteksi pesan user
+  const showSuggestedQuestions = !messages.some(msg => msg.sender === 'user');
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -157,28 +160,32 @@ const Chat = () => {
         <section className="py-8">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-              <div className="lg:col-span-1">
-                <Card className="sticky top-24">
-                  <CardHeader>
-                    <CardTitle className="text-lg">Contoh Pertanyaan</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2">
-                    {suggestedQuestions.map((question, index) => (
-                      <Button
-                        key={index}
-                        variant="ghost"
-                        size="sm"
-                        className="w-full text-left justify-start h-auto p-3 text-sm"
-                        onClick={() => setInputMessage(question)}
-                      >
-                        {question}
-                      </Button>
-                    ))}
-                  </CardContent>
-                </Card>
-              </div>
+              {/* PERUBAHAN 2: Bagian ini akan hilang setelah pesan pertama dikirim */}
+              {showSuggestedQuestions && (
+                <div className="lg:col-span-1">
+                  <Card className="sticky top-24">
+                    <CardHeader>
+                      <CardTitle className="text-lg">Contoh Pertanyaan</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      {suggestedQuestions.map((question, index) => (
+                        <Button
+                          key={index}
+                          variant="ghost"
+                          size="sm"
+                          className="w-full text-left justify-start h-auto p-3 text-sm"
+                          onClick={() => setInputMessage(question)}
+                        >
+                          {question}
+                        </Button>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
 
-              <div className="lg:col-span-3">
+              {/* PERUBAHAN 2: Area chat akan melebar jika "Contoh Pertanyaan" hilang */}
+              <div className={`transition-all duration-500 ${showSuggestedQuestions ? 'lg:col-span-3' : 'lg:col-span-4'}`}>
                 <Card className="h-[600px] flex flex-col bg-gradient-to-b from-background to-muted/20">
                   <div className="flex-1 overflow-y-auto p-4 space-y-6">
                     {messages.map((message) => (
@@ -254,7 +261,8 @@ const Chat = () => {
                               <Bot className="h-4 w-4" />
                             </AvatarFallback>
                           </Avatar>
-                          <div className="bg-white dark:bg-muted p-4 rounded-2xl shadow-md border border-border/20">
+                          {/* PERUBAHAN 1: Latar belakang diubah dari bg-white menjadi bg-muted */}
+                          <div className="bg-muted p-4 rounded-2xl shadow-md border border-border/20">
                             <div className="flex items-center space-x-3">
                               <div className="flex space-x-1">
                                 <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
