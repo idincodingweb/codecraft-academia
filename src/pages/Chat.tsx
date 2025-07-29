@@ -135,7 +135,7 @@ const Chat = () => {
         <section className="py-8">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-              {/* Suggested Questions */}
+              {/* Suggested Questions (Fitur Asli Tetap Ada) */}
               <div className="lg:col-span-1">
                 <Card className="sticky top-24">
                   <CardHeader>
@@ -161,110 +161,110 @@ const Chat = () => {
               <div className="lg:col-span-3">
                 <Card className="h-[600px] flex flex-col bg-gradient-to-b from-background to-muted/20">
                   {/* Messages */}
-                  <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                  <div className="flex-1 overflow-y-auto p-4 space-y-6">
                     {messages.map((message) => (
+                      // {/* PERUBAHAN DIMULAI DI SINI: Mengadopsi struktur bubble chat dari kode #2 */}
                       <motion.div
                         key={message.id}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
-                        className={`flex items-start space-x-3 ${
-                          message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
-                        }`}
+                        className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                       >
-                        <Avatar className="flex-shrink-0">
-                          <AvatarFallback className={`${
-                            message.sender === 'user' 
-                              ? 'bg-primary text-primary-foreground' 
-                              : 'bg-gradient-primary text-white'
-                          }`}>
-                            {message.sender === 'user' ? (
-                              <User className="h-4 w-4" />
-                            ) : (
-                              <Bot className="h-4 w-4" />
-                            )}
-                          </AvatarFallback>
-                        </Avatar>
-                        
-                        <div className={`flex-1 ${
-                          message.sender === 'user' ? 'text-right' : ''
-                        }`}>
-                          <div className={`inline-block max-w-[80%] p-4 rounded-xl shadow-sm ${
-                            message.sender === 'user'
-                              ? 'bg-gradient-primary text-white ml-auto'
-                              : 'bg-white dark:bg-muted border border-border/20'
-                          }`}>
-                            <p className="whitespace-pre-wrap leading-relaxed text-sm">{message.content}</p>
+                        <div className={`flex space-x-3 max-w-[85%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                          <Avatar className="flex-shrink-0 w-8 h-8">
+                            <AvatarFallback className={`${
+                              message.sender === 'user' 
+                                ? 'bg-primary text-primary-foreground' 
+                                : 'bg-gradient-primary text-white'
+                            }`}>
+                              {message.sender === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                            </AvatarFallback>
+                          </Avatar>
+                          
+                          <div className="flex-1">
+                            <div className={`relative inline-block p-4 rounded-2xl shadow-md ${
+                              message.sender === 'user'
+                                ? 'bg-gradient-primary text-white'
+                                : 'bg-white dark:bg-muted border border-border/20'
+                            }`}>
+                              <p className="whitespace-pre-wrap leading-relaxed text-sm">{message.content}</p>
+                            </div>
+                            <p className={`text-xs text-muted-foreground mt-2 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}>
+                              {message.timestamp.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}
+                            </p>
                           </div>
-                          <p className="text-xs text-muted-foreground mt-1">
-                            {message.timestamp.toLocaleTimeString('id-ID', {
-                              hour: '2-digit',
-                              minute: '2-digit'
-                            })}
-                          </p>
                         </div>
                       </motion.div>
+                      // {/* PERUBAHAN SELESAI DI SINI */}
                     ))}
                     
-                    {/* Loading Animation */}
+                    {/* Loading Animation (Gaya Diubah Menyerupai Kode #2) */}
                     {isLoading && (
+                      // {/* PERUBAHAN DIMULAI DI SINI: Mengadopsi gaya loading dari kode #2 */}
                       <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex items-start space-x-3"
+                        className="flex justify-start"
                       >
-                        <Avatar className="flex-shrink-0">
-                          <AvatarFallback className="bg-gradient-primary text-white">
-                            <Bot className="h-4 w-4" />
-                          </AvatarFallback>
-                        </Avatar>
-                        <div className="bg-white dark:bg-muted p-4 rounded-xl shadow-sm border border-border/20">
-                          <div className="flex items-center space-x-3">
-                            <div className="flex space-x-1">
-                              <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                              <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                              <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                        <div className="flex space-x-3 max-w-[85%]">
+                          <Avatar className="flex-shrink-0 w-8 h-8">
+                            <AvatarFallback className="bg-gradient-primary text-white">
+                              <Bot className="h-4 w-4" />
+                            </AvatarFallback>
+                          </Avatar>
+                          <div className="bg-white dark:bg-muted p-4 rounded-2xl shadow-md border border-border/20">
+                            <div className="flex items-center space-x-3">
+                              <div className="flex space-x-1">
+                                <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                                <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                              </div>
+                              <span className="text-sm text-muted-foreground">
+                                Idin Code AI sedang berpikir...
+                              </span>
                             </div>
-                            <span className="text-sm text-muted-foreground">
-                              Idin Code AI sedang berpikir...
-                            </span>
                           </div>
                         </div>
                       </motion.div>
+                      // {/* PERUBAHAN SELESAI DI SINI */}
                     )}
                     
                     <div ref={messagesEndRef} />
                   </div>
 
                   {/* Input Area */}
-                  <div className="border-t border-border p-4">
-                    <div className="flex space-x-2">
+                  <div className="border-t border-border p-4 bg-card/50 backdrop-blur-sm">
+                    <div className="flex space-x-3">
                       <div className="flex-1">
                         <Textarea
                           placeholder="Tanyakan sesuatu tentang programming..."
                           value={inputMessage}
                           onChange={(e) => setInputMessage(e.target.value)}
                           onKeyPress={handleKeyPress}
-                          className="min-h-[60px] resize-none"
+                          className="min-h-[60px] resize-none pr-12 bg-background border-border focus:border-primary"
                           disabled={isLoading}
                         />
                       </div>
                       <Button
                         onClick={handleSendMessage}
                         disabled={!inputMessage.trim() || isLoading}
-                        className="self-end px-6"
+                        className="self-end px-5 bg-gradient-primary hover:opacity-90 h-[60px]" // Mengubah tinggi tombol agar sejajar
                       >
                         {isLoading ? (
-                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <Loader2 className="h-5 w-5 animate-spin" />
                         ) : (
-                          <Send className="h-4 w-4" />
+                          <Send className="h-5 w-5" />
                         )}
                       </Button>
                     </div>
                     
-                    <p className="text-xs text-muted-foreground mt-2">
-                      Tekan Enter untuk mengirim, Shift+Enter untuk baris baru
+                    {/* PERUBAHAN DIMULAI DI SINI: Menambahkan disclaimer dari kode #2 */}
+                    <p className="text-xs text-muted-foreground text-center mt-2">
+                        Tekan Enter untuk mengirim, Shift+Enter untuk baris baru. AI dapat membuat kesalahan.
                     </p>
+                    {/* PERUBAHAN SELESAI DI SINI */}
+
                   </div>
                 </Card>
               </div>
@@ -272,13 +272,12 @@ const Chat = () => {
           </div>
         </section>
 
-        {/* Tips Section */}
+        {/* Tips Section (Fitur Asli Tetap Ada) */}
         <section className="py-12 bg-card/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
               Tips Menggunakan AI Assistant
             </h3>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="pt-6">
@@ -288,11 +287,9 @@ const Chat = () => {
                   </div>
                   <p className="text-muted-foreground text-sm">
                     Semakin spesifik pertanyaan Anda, semakin akurat jawaban yang akan diberikan.
-                    Contoh: "Bagaimana cara membuat API REST dengan Node.js dan Express?"
                   </p>
                 </CardContent>
               </Card>
-              
               <Card>
                 <CardContent className="pt-6">
                   <div className="flex items-center space-x-3 mb-3">
@@ -300,34 +297,7 @@ const Chat = () => {
                     <h4 className="font-semibold">Gunakan Bahasa Indonesia</h4>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    AI Assistant ini dioptimalkan untuk menjawab dalam bahasa Indonesia,
-                    jadi jangan ragu menggunakan bahasa Indonesia.
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <User className="h-5 w-5 text-primary" />
-                    <h4 className="font-semibold">Bertanya Bertahap</h4>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Untuk topik kompleks, mulai dengan pertanyaan dasar lalu lanjut ke 
-                    detail yang lebih spesifik.
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <Loader2 className="h-5 w-5 text-primary" />
-                    <h4 className="font-semibold">Sabar Menunggu</h4>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    AI membutuhkan waktu untuk memproses dan memberikan jawaban terbaik.
-                    Harap tunggu hingga selesai.
+                    AI Assistant ini dioptimalkan untuk menjawab dalam bahasa Indonesia.
                   </p>
                 </CardContent>
               </Card>
