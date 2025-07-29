@@ -119,7 +119,7 @@ const Chat = () => {
   return (
     <div className="h-screen bg-background flex flex-col">
       <header className="sticky top-0 z-10 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
             <Link to="/">
                 <Button variant="ghost">
                     <ArrowLeft className="h-4 w-4 mr-2" />
@@ -136,10 +136,12 @@ const Chat = () => {
         </div>
       </header>
       
-      <main className="flex-1 container mx-auto py-4 w-full">
+      {/* PERUBAHAN: Kelas 'container mx-auto' dihapus dari <main> agar menjadi full-width */}
+      <main className="flex-1 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-full">
           {showSuggestedQuestions && (
-            <div className="lg:col-span-1">
+            // Kolom ini sekarang diberi padding horizontal agar tidak menempel di tepi layar
+            <div className="lg:col-span-1 px-4 sm:px-6 lg:px-8 pt-4">
               <Card className="sticky top-24">
                 <CardHeader>
                   <CardTitle className="text-lg">Contoh Pertanyaan</CardTitle>
@@ -161,7 +163,8 @@ const Chat = () => {
             </div>
           )}
 
-          <div className={`transition-all duration-500 ${showSuggestedQuestions ? 'lg:col-span-3' : 'lg:col-span-4'}`}>
+          {/* Kolom ini sekarang diberi padding horizontal agar tidak menempel di tepi layar */}
+          <div className={`transition-all duration-500 px-4 sm:px-6 lg:px-8 pt-4 pb-4 ${showSuggestedQuestions ? 'lg:col-span-3' : 'lg:col-span-4'}`}>
             <Card className="h-full flex flex-col bg-gradient-to-b from-background to-muted/20">
               <div className="flex-1 overflow-y-auto p-4 space-y-6">
                 {messages.map((message) => (
