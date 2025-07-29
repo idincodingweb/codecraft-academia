@@ -135,7 +135,7 @@ const Chat = () => {
         <section className="py-8">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-              {/* Suggested Questions (Fitur Asli Tetap Ada) */}
+              {/* Suggested Questions */}
               <div className="lg:col-span-1">
                 <Card className="sticky top-24">
                   <CardHeader>
@@ -163,7 +163,6 @@ const Chat = () => {
                   {/* Messages */}
                   <div className="flex-1 overflow-y-auto p-4 space-y-6">
                     {messages.map((message) => (
-                      // {/* PERUBAHAN DIMULAI DI SINI: Mengadopsi struktur bubble chat dari kode #2 */}
                       <motion.div
                         key={message.id}
                         initial={{ opacity: 0, y: 15 }}
@@ -183,10 +182,11 @@ const Chat = () => {
                           </Avatar>
                           
                           <div className="flex-1">
+                            {/* PERUBAHAN DI BARIS INI */}
                             <div className={`relative inline-block p-4 rounded-2xl shadow-md ${
                               message.sender === 'user'
                                 ? 'bg-gradient-primary text-white'
-                                : 'bg-white dark:bg-muted border border-border/20'
+                                : 'bg-white dark:bg-muted border border-border/20 text-gray-800 dark:text-gray-200'
                             }`}>
                               <p className="whitespace-pre-wrap leading-relaxed text-sm">{message.content}</p>
                             </div>
@@ -196,12 +196,10 @@ const Chat = () => {
                           </div>
                         </div>
                       </motion.div>
-                      // {/* PERUBAHAN SELESAI DI SINI */}
                     ))}
                     
-                    {/* Loading Animation (Gaya Diubah Menyerupai Kode #2) */}
+                    {/* Loading Animation */}
                     {isLoading && (
-                      // {/* PERUBAHAN DIMULAI DI SINI: Mengadopsi gaya loading dari kode #2 */}
                       <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -227,7 +225,6 @@ const Chat = () => {
                           </div>
                         </div>
                       </motion.div>
-                      // {/* PERUBAHAN SELESAI DI SINI */}
                     )}
                     
                     <div ref={messagesEndRef} />
@@ -249,7 +246,7 @@ const Chat = () => {
                       <Button
                         onClick={handleSendMessage}
                         disabled={!inputMessage.trim() || isLoading}
-                        className="self-end px-5 bg-gradient-primary hover:opacity-90 h-[60px]" // Mengubah tinggi tombol agar sejajar
+                        className="self-end px-5 bg-gradient-primary hover:opacity-90 h-[60px]"
                       >
                         {isLoading ? (
                           <Loader2 className="h-5 w-5 animate-spin" />
@@ -259,12 +256,9 @@ const Chat = () => {
                       </Button>
                     </div>
                     
-                    {/* PERUBAHAN DIMULAI DI SINI: Menambahkan disclaimer dari kode #2 */}
                     <p className="text-xs text-muted-foreground text-center mt-2">
                         Tekan Enter untuk mengirim, Shift+Enter untuk baris baru. AI dapat membuat kesalahan.
                     </p>
-                    {/* PERUBAHAN SELESAI DI SINI */}
-
                   </div>
                 </Card>
               </div>
@@ -272,7 +266,7 @@ const Chat = () => {
           </div>
         </section>
 
-        {/* Tips Section (Fitur Asli Tetap Ada) */}
+        {/* Tips Section */}
         <section className="py-12 bg-card/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
