@@ -62,13 +62,14 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero"></div>
+      {/* PERUBAHAN UTAMA: 'min-h-screen' diganti dengan padding vertikal 'py-28 lg:py-32' */}
+      <section className="relative overflow-hidden bg-gray-900 py-28 lg:py-32">
+        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
             alt="Programming Languages" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-10" // Opacity dikurangi agar teks lebih jelas
           />
         </div>
         
@@ -82,7 +83,7 @@ const Index = () => {
             <div className="space-y-4">
               <Badge 
                 variant="secondary" 
-                className="px-4 py-2 text-sm font-medium bg-white/10 backdrop-blur-sm border-white/20"
+                className="px-4 py-2 text-sm font-medium bg-white/10 backdrop-blur-sm border-white/20 text-white"
               >
                 🚀 Platform Pembelajaran Programming Terdepan
               </Badge>
@@ -102,16 +103,18 @@ const Index = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/articles">
-                <Button size="lg" className="btn-hero px-8 py-4 text-lg">
+                {/* PERUBAHAN KECIL: Tambahan kelas untuk responsivitas mobile */}
+                <Button size="lg" className="btn-hero px-8 py-4 text-lg w-full sm:w-auto">
                   <BookOpen className="mr-2 h-5 w-5" />
                   Mulai Belajar
                 </Button>
               </Link>
               <Link to="/chat">
+                {/* PERUBAHAN KECIL: Tambahan kelas untuk responsivitas mobile */}
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="btn-outline-hero px-8 py-4 text-lg"
+                  className="btn-outline-hero px-8 py-4 text-lg w-full sm:w-auto"
                 >
                   <Brain className="mr-2 h-5 w-5" />
                   Chat dengan AI
@@ -121,7 +124,7 @@ const Index = () => {
           </motion.div>
         </div>
 
-        {/* Floating Elements */}
+        {/* Floating Elements (Tidak diubah) */}
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(6)].map((_, i) => (
             <motion.div
@@ -145,7 +148,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section (Tidak diubah) */}
       <section className="py-16 bg-card/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -172,7 +175,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section (Tidak diubah) */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -216,7 +219,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Categories Section */}
+      {/* Categories Section (Tidak diubah) */}
       <section className="py-20 bg-card/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -256,7 +259,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Articles */}
+      {/* Featured Articles (Tidak diubah) */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -329,7 +332,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section (Tidak diubah) */}
       <section className="py-20 bg-gradient-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
